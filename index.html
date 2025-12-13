@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đinh Nhật Thanh - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <style>
+        /* Google Material Design Inspired Portfolio */
+
+        :root {
+            --primary-color: #1a73e8;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --border-color: #dadce0;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+            --shadow-hover: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header Section */
+        .header {
+            background-color: var(--bg-white);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: var(--spacing-sm);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .title {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: 10px 16px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            background-color: var(--bg-white);
+        }
+
+        .contact-link:hover {
+            background-color: var(--bg-light);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .contact-link .material-icons {
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -39px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid var(--bg-white);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.938rem;
+            line-height: 1.5;
+        }
+
+        .timeline-content .highlight {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: var(--spacing-xs);
+        }
+
+        .list li {
+            color: var(--text-secondary);
+            font-size: 0.938rem;
+            padding: 4px 0;
+            padding-left: var(--spacing-sm);
+            position: relative;
+        }
+
+        .list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .achievement-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .achievement-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .achievement-card.featured {
+            border: 2px solid var(--primary-color);
+            background-color: #f8fbff;
+        }
+
+        .achievement-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .achievement-card p {
+            font-size: 0.938rem;
+            color: var(--text-secondary);
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .expertise-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .expertise-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .expertise-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .expertise-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .expertise-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .contact-link {
+                justify-content: center;
+            }
+            
+            .achievements-grid,
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                padding-left: var(--spacing-md);
+            }
+            
+            .timeline-dot {
+                left: -31px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .header {
+                padding: var(--spacing-md) 0;
+            }
+            
+            .main-content {
+                padding: var(--spacing-md) 0;
+            }
+            
+            .name {
+                font-size: 1.75rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-image">
+                    <img src="https://www.genspark.ai/api/files/s/Q1cSeAjE" alt="Đinh Nhật Thanh" id="profileImg">
+                </div>
+                <h1 class="name">Đinh Nhật Thanh</h1>
+                <p class="title">Kỹ sư Khoa học Máy tính | Business Leader | Fintech Expert</p>
+                <div class="contact-links">
+                    <a href="tel:0979160388" class="contact-link">
+                        <span class="material-icons">phone</span>
+                        <span>0979160388</span>
+                    </a>
+                    <a href="mailto:nhatthanhdeco@gmail.com" class="contact-link">
+                        <span class="material-icons">email</span>
+                        <span>nhatthanhdeco@gmail.com</span>
+                    </a>
+                    <a href="https://www.facebook.com/dinhnhatthanh" target="_blank" class="contact-link">
+                        <span class="material-icons">person</span>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dinh-nhat-thanh-219752102/" target="_blank" class="contact-link">
+                        <span class="material-icons">work</span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- About Section -->
+            <section class="section" id="about">
+                <h2 class="section-title">Nền tảng chuyên môn</h2>
+                <div class="card">
+                    <p class="subtitle">Kỹ sư Khoa học Máy tính</p>
+                    <p class="description">Computer Science</p>
+                </div>
+            </section>
+
+            <!-- Journey Section -->
+            <section class="section" id="journey">
+                <h2 class="section-title">Hành trình làm việc</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Lập trình viên</h3>
+                            <p>Khởi đầu sự nghiệp với nền tảng kỹ thuật vững chắc</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Business Analyst</h3>
+                            <ul class="list">
+                                <li>Phần mềm kế toán</li>
+                                <li>Hệ thống hành chính công</li>
+                                <li>Sàn thương mại điện tử mô hình B2B2C</li>
+                                <li>Omnichannel selling & Marketing Automation Platform</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Phụ trách kinh doanh phát triển SaaS</h3>
+                            <p class="highlight">10 năm kinh nghiệm</p>
+                            <p>Phát triển các sản phẩm Software as a Service</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Fintech</h3>
+                            <p>Crypto & Financial Trading</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section class="section" id="achievements">
+                <h2 class="section-title">Thành tựu</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <span class="material-icons achievement-icon">analytics</span>
+                        <h3>Business Analyst</h3>
+                        <p>at Sendo.vn</p>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="material-icons achievement-icon">shopping_cart</span>
+                        <h3>Head of Ecommerce Consultant</h3>
+                        <p>at Haravan.com</p>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="material-icons achievement-icon">trending_up</span>
+                        <h3>Head of Enterprise Sales</h3>
+                        <p>at Haravan.com</p>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="material-icons achievement-icon">support_agent</span>
+                        <h3>Head of Farming</h3>
+                        <p>After sales - CS at Haravan.com</p>
+                    </div>
+                    <div class="achievement-card featured">
+                        <span class="material-icons achievement-icon">rocket_launch</span>
+                        <h3>Founder & CEO</h3>
+                        <p>Dc7Program - Trading Platform</p>
+                    </div>
+                    <div class="achievement-card">
+                        <span class="material-icons achievement-icon">business_center</span>
+                        <h3>Omnichannel Selling Advisor</h3>
+                        <p>Tư vấn cho hơn 20 công ty</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expertise Section -->
+            <section class="section" id="expertise">
+                <h2 class="section-title">Chuyên môn sâu</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <span class="material-icons expertise-icon">code</span>
+                        <h3>Programming Languages</h3>
+                        <p>C, C++, OOP</p>
+                    </div>
+                    <div class="expertise-card">
+                        <span class="material-icons expertise-icon">architecture</span>
+                        <h3>Software System Architect</h3>
+                        <p>Thiết kế kiến trúc hệ thống</p>
+                    </div>
+                    <div class="expertise-card">
+                        <span class="material-icons expertise-icon">business</span>
+                        <h3>Business Model Consulting</h3>
+                        <p>Tư vấn mô hình kinh doanh</p>
+                    </div>
+                    <div class="expertise-card">
+                        <span class="material-icons expertise-icon">transform</span>
+                        <h3>Digital Transformation</h3>
+                        <p>Chuyển đổi số doanh nghiệp</p>
+                    </div>
+                    <div class="expertise-card">
+                        <span class="material-icons expertise-icon">account_balance</span>
+                        <h3>Capital Growth</h3>
+                        <p>Phát triển nguồn vốn</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Đinh Nhật Thanh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Google Style Portfolio - Simple Interactions
+
+        // Smooth scroll for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Add fade-in animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Smooth scroll to sections
+            const contactLinks = document.querySelectorAll('a[href^="#"]');
+            contactLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Add ripple effect to cards (Google Material style)
+            const cards = document.querySelectorAll('.achievement-card, .expertise-card, .contact-link');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.2s ease';
+                });
+            });
+
+            // Profile image error handling
+            const profileImg = document.getElementById('profileImg');
+            if (profileImg) {
+                profileImg.addEventListener('error', function() {
+                    // If image fails to load, show a placeholder with initials
+                    this.style.display = 'none';
+                    const parent = this.parentElement;
+                    parent.innerHTML = '<div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 300;">DNT</div>';
+                });
+            }
+
+            // Add animation to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 100);
+            });
+
+            // Console message
+            console.log('%c👋 Hello! Welcome to Đinh Nhật Thanh\'s Portfolio', 'font-size: 16px; color: #1a73e8; font-weight: bold;');
+            console.log('%cBuilt with Google Material Design principles', 'font-size: 12px; color: #5f6368;');
+
+        });
+
+        // Helper function to update profile image
+        window.updateProfileImage = function(imageUrl) {
+            const profileImg = document.getElementById('profileImg');
+            if (profileImg) {
+                profileImg.src = imageUrl;
+                profileImg.style.display = 'block';
+            }
+        };
+
+        // Add scroll-to-top functionality (optional)
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                // Optional: Add scroll-based animations or interactions here
+            }, 100);
+        });
+    </script>
+</body>
+</html>
